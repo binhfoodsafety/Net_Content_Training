@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ôn tập Net Content</title>
+<meta name="description" content="Flashcard và quiz tự luyện cho 8 module khoá học Quản lý khối lượng tịnh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="study/study.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <a class="back" href="index.html">← Về khoá học</a>
+      <h1>Ôn tập theo module</h1>
+    </div>
+    <div class="stats">
+      <div><b id="statKnown">0/0</b><span>Thẻ đã nhớ</span></div>
+      <div><b id="statBest">–</b><span>Quiz tốt nhất</span></div>
+    </div>
+  </header>
+
+  <div class="bar">
+    <label for="moduleSelect">Module:</label>
+    <select id="moduleSelect"></select>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" id="tabFc" role="tab" type="button" aria-controls="panelFc">🃏 Flashcard</button>
+    <button class="tab" id="tabQuiz" role="tab" type="button" aria-controls="panelQuiz">🎯 Quiz</button>
+  </div>
+
+  <section class="panel" id="panelFc" role="tabpanel" aria-labelledby="tabFc">
+    <div class="progress-line"><span id="fcCounter"></span><progress id="fcBar" value="0" max="1"></progress></div>
+    <p class="hint">Nhấp vào thẻ hoặc nhấn <kbd>Space</kbd> để lật · <kbd>←</kbd> <kbd>→</kbd> chuyển thẻ · <kbd>R</kbd> đọc</p>
+    <div class="scene" id="scene" role="button" tabindex="0" aria-label="Lật thẻ">
+      <div class="card-3d" id="card3d">
+        <div class="card-face card-front">
+          <div class="card-word" id="fcFront"></div>
+          <div class="card-hint">Nhấp để xem đáp án</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-meaning" id="fcBack"></div>
+          <div class="card-status" id="fcStatus"></div>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn" type="button" id="fcPrev">◀ Trước</button>
+      <button class="btn primary" type="button" id="fcFlip">🔄 Lật</button>
+      <button class="btn" type="button" id="fcNext">Sau ▶</button>
+      <button class="btn" type="button" id="fcRead">🔊 Đọc</button>
+    </div>
+    <div class="controls">
+      <button class="btn good" type="button" id="fcKnown">✓ Nhớ rồi</button>
+      <button class="btn bad" type="button" id="fcUnknown">✗ Chưa nhớ</button>
+      <button class="btn" type="button" id="fcShuffle">🔀 Xáo thẻ</button>
+      <button class="btn" type="button" id="fcOnlyNew" aria-pressed="false">🔁 Chỉ thẻ chưa nhớ</button>
+    </div>
+  </section>
+
+  <section class="panel" id="panelQuiz" role="tabpanel" aria-labelledby="tabQuiz">
+    <div id="quizRun">
+      <div class="quiz-header">
+        <span id="quizCounter"></span>
+        <b id="quizScore"></b>
+        <button class="btn skip" type="button" id="quizSkip">⏭ Bỏ qua</button>
+      </div>
+      <div class="meter"><div id="quizProgress"></div></div>
+      <div class="quiz-question" id="quizQuestion"></div>
+      <p class="hint"><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> chọn · <kbd>Enter</kbd> câu tiếp · <kbd>S</kbd> bỏ qua · <kbd>R</kbd> đọc câu</p>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="quiz-feedback" id="quizFeedback" role="status"></div>
+      <div class="controls">
+        <a class="btn" id="quizSlide" target="_blank" rel="noopener" hidden>📖 Xem lại slide</a>
+        <button class="btn primary" type="button" id="quizNext" hidden>Câu tiếp ▶</button>
+      </div>
+    </div>
+    <div class="quiz-result" id="quizResult" hidden>
+      <div class="result-num" id="resultNum"></div>
+      <p id="resultText"></p>
+      <div class="controls">
+        <button class="btn primary" type="button" id="quizAgain">↻ Làm lại</button>
+        <button class="btn" type="button" id="quizWrong">🔁 Làm lại câu sai</button>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="study/data.js"></script>
+<script src="study/say.js"></script>
+<script src="study/study.js"></script>
+</body>
+</html>

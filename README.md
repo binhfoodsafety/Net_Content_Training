@@ -19,6 +19,10 @@ Xem trực tuyến: <https://binhfoodsafety.github.io/Net_Content_Training/>
 
 Trang chủ `index.html` có droplist chọn module và khung xem slide. Mỗi module cũng mở được riêng: `slides/0x-....html`.
 
+## Ôn tập
+
+`on-tap.html` có flashcard và quiz tự luyện cho từng module, hoặc trộn tất cả. Mở thẳng một module bằng `on-tap.html#m3` (flashcard) hoặc `on-tap.html#m3-quiz` (quiz). Thẻ và câu hỏi nằm trong `study/data.js`. Tiến độ chỉ lưu trên trình duyệt của người học.
+
 ## Trình chiếu
 
 - `←` `→` / nút Trước – Tiếp, `F` toàn màn hình, `P` phát/tạm dừng thuyết minh; vuốt trên điện thoại.
@@ -30,6 +34,8 @@ Trang chủ `index.html` có droplist chọn module và khung xem slide. Mỗi m
 
 ```
 index.html          trang chủ: droplist + khung xem
+on-tap.html         flashcard và quiz
+study/              dữ liệu, giao diện và mã của trang ôn tập
 slides/deck.css     giao diện slide (16:9, sáng/tối, in, màu theo module)
 slides/deck.js      điều hướng, tự co chữ, thuyết minh TTS
 slides/art/*.svg    hình minh hoạ tự vẽ

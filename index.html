@@ -90,7 +90,7 @@
       <h1>Quản lý khối lượng tịnh</h1>
       <p class="lead">Khoá học tiếng Việt cho nhà máy thực phẩm và đồ uống: từ yêu cầu pháp luật, tính khối lượng mục tiêu, cân, bì, SPC đến xuất xưởng lô. Có thuyết minh giọng đọc tiếng Việt khi trình chiếu.</p>
     </div>
-    <div class="stats"><div><b>8</b><span>Module</span></div><div><b id="totalSlides">119</b><span>Slide</span></div></div>
+    <div class="stats"><div><b>8</b><span>Module</span></div><div><b id="totalSlides">119</b><span>Slide</span></div><div><b>96</b><span>Flashcard</span></div><div><b>100</b><span>Câu quiz</span></div></div>
   </header>
 
   <section class="viewer" aria-label="Xem slide">
@@ -99,6 +99,8 @@
       <select id="moduleSelect"></select>
       <button class="btn primary" id="playBtn" type="button" title="Phát thuyết minh từ slide đầu, tự chuyển slide">▶ Trình chiếu có thuyết minh</button>
       <a class="btn" id="openBtn" href="#" target="_blank" rel="noopener" title="Mở trong tab mới để trình chiếu toàn màn hình">⛶ Mở tab mới</a>
+      <a class="btn" id="fcBtn" href="on-tap.html" title="Ôn module này bằng thẻ lật">🃏 Flashcard</a>
+      <a class="btn" id="quizBtn" href="on-tap.html" title="Tự kiểm tra module này">🎯 Quiz</a>
     </div>
     <div class="frame"><iframe id="deckFrame" title="Slide Quản lý khối lượng tịnh" allow="fullscreen; autoplay"></iframe></div>
     <p class="desc" id="moduleDesc"></p>
@@ -164,6 +166,8 @@
     sel.value = i;
     frame.src = m.file + '?theme=' + theme();
     openBtn.href = m.file;
+    document.getElementById('fcBtn').href = 'on-tap.html#m' + (i + 1);
+    document.getElementById('quizBtn').href = 'on-tap.html#m' + (i + 1) + '-quiz';
     descEl.textContent = m.desc;
     Array.prototype.forEach.call(list.children, function (b, k) { b.setAttribute('aria-current', String(k === i)); });
     try { localStorage.setItem('nc_module', i); } catch (e) {}
