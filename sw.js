@@ -1,5 +1,5 @@
 // Lưu sẵn khoá học để dùng khi không có mạng. Có mạng thì luôn lấy bản mới nhất.
-var CACHE = 'nc-v3';
+var CACHE = 'nc-v4';
 var FILES = [
   './',
   './cong-cu.html',
@@ -56,8 +56,9 @@ self.addEventListener('install', function (e) {
 });
 
 self.addEventListener('activate', function (e) {
+  // Mọi khoá học trên binhfoodsafety.github.io dùng chung Cache, nên chỉ xoá bản cũ của khoá này
   e.waitUntil(caches.keys().then(function (keys) {
-    return Promise.all(keys.filter(function (k) { return k !== CACHE; }).map(function (k) { return caches.delete(k); }));
+    return Promise.all(keys.filter(function (k) { return k.indexOf('nc-') === 0 && k !== CACHE; }).map(function (k) { return caches.delete(k); }));
   }).then(function () { return self.clients.claim(); }));
 });
 
