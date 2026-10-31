@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Net Content Training</title>
 <meta name="description" content="Khoá học Quản lý khối lượng tịnh (Net Content Management) tiếng Việt, 8 module, có thuyết minh âm thanh.">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#312e81">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Net Content">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta property="og:title" content="Quản lý khối lượng tịnh (Net Content)">
+<meta property="og:description" content="Khoá học tiếng Việt: slide, flashcard và quiz.">
+<meta property="og:image" content="https://binhfoodsafety.github.io/Net_Content_Training/icons/icon-512.png">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -58,7 +71,7 @@
   .mod p { margin: 0 0 8px; font-size: 13px; color: var(--ink-2); }
   .mod small { font-size: 12px; color: var(--muted); }
 
-  .notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .notes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
   .note { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; font-size: 14px; color: var(--ink-2); }
   .note b { color: var(--ink); display: block; margin-bottom: 4px; }
   kbd { font-family: inherit; font-size: 12px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 0 5px; background: var(--bg); }
@@ -79,7 +92,7 @@
   .mod:hover { border-color: var(--c); } .mod[aria-current="true"] { border-color: var(--c); box-shadow: inset 0 0 0 1px var(--c); }
   .mod .n { width: 58px; height: 58px; background: #fff; border-radius: 50%; padding: 7px; box-shadow: 0 0 0 2px var(--c); } .mod .n img { width: 100%; height: 100%; display: block; }
   .mod h3 { color: color-mix(in srgb, var(--c) 82%, var(--ink)); }
-  .note { border-width: 2px; } .note:nth-child(1) { border-color: #4f46e5; } .note:nth-child(2) { border-color: #0f766e; } .note:nth-child(3) { border-color: #c2410c; }
+  .note { border-width: 2px; } .note:nth-child(1) { border-color: #4f46e5; } .note:nth-child(2) { border-color: #0f766e; } .note:nth-child(3) { border-color: #c2410c; } .note:nth-child(4) { border-color: #7c3aed; }
 </style>
 </head>
 <body>
@@ -114,6 +127,7 @@
     <div class="note"><b>Điều khiển slide</b>Dùng <kbd>←</kbd> <kbd>→</kbd> hoặc nút Trước / Tiếp; <kbd>F</kbd> toàn màn hình; vuốt trái / phải trên điện thoại. Màn hình hẹp tự chuyển sang dạng cuộn.</div>
     <div class="note"><b>Thuyết minh âm thanh</b>Bấm <kbd>▶ Phát</kbd> trên thanh dưới slide (hoặc <kbd>P</kbd>). Đọc xong tự chuyển slide; chỉnh tốc độ 0,9–1,4×; nút 📝 hiện lời đọc.</div>
     <div class="note"><b>Lưu ý về giọng đọc</b>Dùng Google Translate TTS nên cần Internet; nội dung lời đọc được gửi tới Google. Không gửi thông tin người học.</div>
+    <div class="note"><b>Cài lên iPhone</b>Mở trang bằng Safari, bấm nút Chia sẻ rồi chọn <kbd>Thêm vào MH chính</kbd>. Sau khi mở một lần, slide, flashcard và quiz dùng được khi không có mạng; giọng đọc vẫn cần Internet.</div>
   </div>
 
   <footer>Tài liệu đào tạo biên soạn bằng tiếng Việt, tập trung vào kiến thức chuyên môn. Số liệu trong ví dụ chỉ để minh hoạ. Khi áp dụng, cần đối chiếu văn bản pháp luật đang có hiệu lực của từng thị trường bán hàng.</footer>
@@ -188,5 +202,6 @@
   var startIdx = fromHash ? Number(fromHash[1]) - 1 : (saved !== null ? Number(saved) : 0);
   select(startIdx >= 0 && startIdx < MODULES.length ? startIdx : 0);
 </script>
+<script src="pwa.js"></script>
 </body>
 </html>

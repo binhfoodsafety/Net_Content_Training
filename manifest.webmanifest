@@ -1,0 +1,26 @@
+{
+  "id": "./",
+  "name": "Quản lý khối lượng tịnh",
+  "short_name": "Net Content",
+  "description": "Khoá học Net Content Management: slide, flashcard và quiz.",
+  "lang": "vi",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#edf1f3",
+  "theme_color": "#312e81",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

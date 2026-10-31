@@ -23,6 +23,10 @@ Trang chủ `index.html` có droplist chọn module và khung xem slide. Mỗi m
 
 `on-tap.html` có flashcard và quiz tự luyện cho từng module, hoặc trộn tất cả. Mở thẳng một module bằng `on-tap.html#m3` (flashcard) hoặc `on-tap.html#m3-quiz` (quiz). Thẻ và câu hỏi nằm trong `study/data.js`. Tiến độ chỉ lưu trên trình duyệt của người học.
 
+## Cài như ứng dụng
+
+Trên iPhone: mở trang bằng Safari, Chia sẻ → Thêm vào MH chính. Android, máy tính: dùng lệnh cài của trình duyệt. `sw.js` lưu sẵn khoá học để dùng khi không có mạng; thêm file mới thì bổ sung vào danh sách `FILES` và tăng số phiên bản `CACHE`.
+
 ## Trình chiếu
 
 - `←` `→` / nút Trước – Tiếp, `F` toàn màn hình, `P` phát/tạm dừng thuyết minh; vuốt trên điện thoại.
