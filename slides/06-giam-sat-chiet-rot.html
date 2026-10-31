@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Net Content 6 · Giám sát chiết rót &amp; SPC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body class="m6" data-module="Net Content · Module 6 — Giám sát">
+<div class="deck">
+
+<section class="slide title">
+  <div class="hero-art"><img src="art/filler.svg" alt=""></div><div class="eyebrow">Net Content Management · Module 6</div>
+  <h1>Giám sát chiết rót & SPC</h1>
+  <div class="sub">CP4: giữ trung bình sát mục tiêu, biến thiên trong giới hạn, và biết chính xác khi nào cần chỉnh máy.</div>
+  <div class="meta"><span class="chip">X-bar</span><span class="chip">R chart</span><span class="chip">Run chart</span><span class="chip">Decision rules</span></div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/filler.svg" alt="">
+  <h2>Các yếu tố phải theo dõi</h2>
+  <div class="body">
+<table class="tbl "><tr><th>Nhóm</th><th>Yếu tố</th><th>Với cân tĩnh</th><th>Với checkweigher</th></tr><tr><td>Tiên quyết</td><td>Thiết bị cân</td><td>Quả chuẩn</td><td>Biểu đồ MoD</td></tr><tr><td>Tiên quyết</td><td>Bì</td><td>Cân bao bì rỗng</td><td>Cân bao bì rỗng</td></tr><tr><td>Net</td><td>Trung bình</td><td>Biểu đồ X-bar</td><td>Run chart trung bình</td></tr><tr><td>Net</td><td>Biến thiên</td><td>Biểu đồ R</td><td>Run chart S<sub>p</sub></td></tr><tr><td>Net</td><td>Căn chỉnh đầu chiết</td><td>Thử đầu chiết</td><td>Thử đầu chiết</td></tr></table>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/warning.svg" alt="">
+  <h2>Hiệu ứng Deming: đừng chỉnh quá tay</h2>
+  <div class="body">
+<div class="statement"><span>Chỉnh càng nhiều, biến thiên càng lớn<small>Điều chỉnh theo từng điểm dữ liệu là phản ứng với nhiễu ngẫu nhiên. Quy trình ổn định cần được để yên.</small></span></div><div class="callout ">Vì vậy cần biểu đồ kiểm soát: nó phân biệt <b>biến thiên tự nhiên</b> với <b>tín hiệu thật</b>.</div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/filler.svg" alt="">
+  <h2>Máy phải có năng lực trước khi giám sát</h2>
+  <div class="body">
+<div class="cards" style="--n:3"><div class="card "><h3>Hiệu chỉnh thiết bị điều chỉnh</h3><p>Biết mỗi nấc chỉnh thay đổi bao nhiêu gam.</p></div><div class="card "><h3>Phép thử năng lực máy</h3><p>Xác định S<sub>m</sub> khi đầu chiết đã căn chỉnh. Khi vận hành thử, sau sửa chữa, và rà soát hằng năm.</p></div><div class="card "><h3>Thử đầu chiết</h3><p>Kiểm tra nhanh các đầu chiết có đồng đều, khi S<sub>p</sub> tăng hoặc sau khi thay.</p></div></div><div class="callout ">Nguyên tắc đích: phân bố lượng gần phân bố chuẩn. Dùng biểu đồ tần suất để xác nhận theo tần suất cơ sở tự đặt.</div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/filler.svg" alt="">
+  <h2>Nguồn biến thiên và công cụ</h2>
+  <div class="body">
+<table class="tbl "><tr><th>Nguồn</th><th>Biểu hiện</th><th>Công cụ</th></tr><tr><td>Đầu chiết lệch nhau</td><td>S<sub>p</sub> tăng, trung bình vẫn ổn</td><td>Thử đầu chiết</td></tr><tr><td>Máy với sản phẩm</td><td>S<sub>m</sub> cao từ đầu</td><td>Phép thử năng lực máy</td></tr><tr><td>Tính chất sản phẩm</td><td>S<sub>p</sub> trôi theo thời gian (tỷ trọng bột, độ nhớt)</td><td>SPC trên đặc tính sản phẩm</td></tr><tr><td>Bảo trì</td><td>Dao động đột ngột</td><td>Kế hoạch bảo trì</td></tr><tr><td>Thao tác, ca kíp</td><td>Khác biệt giữa ca</td><td>Đào tạo, biểu đồ dùng chung</td></tr></table>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Biểu đồ X-bar là gì?</h2>
+  <div class="body">
+<div class="cols w6040"><div><svg class="chart" viewBox="0 0 600 320" role="img" aria-label="Biểu đồ X-bar"><rect x="74.0" y="14.0" width="508.0" height="29.5" rx="0" style="fill:var(--bad-soft);opacity:1"/><rect x="74.0" y="43.5" width="508.0" height="35.2" rx="0" style="fill:var(--warn-soft);opacity:1"/><rect x="74.0" y="219.3" width="508.0" height="35.2" rx="0" style="fill:var(--warn-soft);opacity:1"/><rect x="74.0" y="254.5" width="508.0" height="29.5" rx="0" style="fill:var(--bad-soft);opacity:1"/><line x1="74.0" y1="43.5" x2="582.0" y2="43.5" style="stroke:var(--bad);stroke-width:2"/><line x1="74.0" y1="78.7" x2="582.0" y2="78.7" style="stroke:var(--warn);stroke-width:2" stroke-dasharray="6 4"/><line x1="74.0" y1="149.0" x2="582.0" y2="149.0" style="stroke:var(--brand);stroke-width:2.5"/><text x="68.0" y="48.5" text-anchor="end" style="fill:var(--bad);font-size:14px;font-weight:700">CL</text><text x="68.0" y="83.7" text-anchor="end" style="fill:var(--warn);font-size:14px;font-weight:700">WL</text><text x="68.0" y="154.0" text-anchor="end" style="fill:var(--brand);font-size:14px;font-weight:700">M</text><line x1="74.0" y1="254.5" x2="582.0" y2="254.5" style="stroke:var(--bad);stroke-width:2"/><line x1="74.0" y1="219.3" x2="582.0" y2="219.3" style="stroke:var(--warn);stroke-width:2" stroke-dasharray="6 4"/><text x="68.0" y="259.5" text-anchor="end" style="fill:var(--bad);font-size:14px;font-weight:700">CL</text><text x="68.0" y="224.3" text-anchor="end" style="fill:var(--warn);font-size:14px;font-weight:700">WL</text><path d="M95.2 142.0 L137.5 173.6 L179.8 110.3 L222.2 134.9 L264.5 191.2 L306.8 127.9 L349.2 159.5 L391.5 99.8 L433.8 166.6 L476.2 145.5 L518.5 120.9 L560.8 180.6" style="stroke:var(--ink-2);stroke-width:2;fill:none;fill-opacity:1"/><circle cx="95.2" cy="142.0" r="4.5" style="fill:var(--ink)"/><circle cx="137.5" cy="173.6" r="4.5" style="fill:var(--ink)"/><circle cx="179.8" cy="110.3" r="4.5" style="fill:var(--ink)"/><circle cx="222.2" cy="134.9" r="4.5" style="fill:var(--ink)"/><circle cx="264.5" cy="191.2" r="4.5" style="fill:var(--ink)"/><circle cx="306.8" cy="127.9" r="4.5" style="fill:var(--ink)"/><circle cx="349.2" cy="159.5" r="4.5" style="fill:var(--ink)"/><circle cx="391.5" cy="99.8" r="4.5" style="fill:var(--ink)"/><circle cx="433.8" cy="166.6" r="4.5" style="fill:var(--ink)"/><circle cx="476.2" cy="145.5" r="4.5" style="fill:var(--ink)"/><circle cx="518.5" cy="120.9" r="4.5" style="fill:var(--ink)"/><circle cx="560.8" cy="180.6" r="4.5" style="fill:var(--ink)"/><text x="95.2" y="310.0" text-anchor="middle" style="fill:var(--ink-2);font-size:13px;font-weight:400">8:00</text><text x="264.5" y="310.0" text-anchor="middle" style="fill:var(--ink-2);font-size:13px;font-weight:400">9:00</text><text x="433.8" y="310.0" text-anchor="middle" style="fill:var(--ink-2);font-size:13px;font-weight:400">10:00</text></svg></div><div><ul><li>Mỗi điểm là <b>trung bình của n đơn vị</b>.</li><li>Đường giữa: M.</li><li>Vì trung bình chỉ là ước lượng, phải có giới hạn.</li><li>Giới hạn nói về <b>quy trình</b>, không phải dung sai pháp luật.</li></ul></div></div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/chart.svg" alt="">
+  <h2>Tính giới hạn biểu đồ</h2>
+  <div class="body">
+<div class="cols"><div><div class="formula"><span>CL = M ± 3 × S<sub>m</sub> / √n</span></div></div><div><div class="formula"><span>WL = M ± 2 × S<sub>m</sub> / √n</span></div></div></div><ul><li>Giới hạn tính từ <b>S<sub>m</sub></b>, biến thiên ngắn hạn của máy với sản phẩm.</li><li>n là cỡ mẫu mỗi lần lấy, thường 3 đến 8.</li></ul><div class="callout "><b>Ví dụ:</b> M = 500 g, S<sub>m</sub> = 3 g, n = 4: CL = 500 ± 4,5 g; WL = 500 ± 3 g.</div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/filler.svg" alt="">
+  <h2>Lấy mẫu với cân tĩnh</h2>
+  <div class="body">
+<div class="cols "><div><div class="cards" style="--n:1"><div class="card "><h3>Cỡ mẫu mỗi lần</h3><p>3 đến 8 đơn vị. Trên 8 đơn vị thì dùng S-chart thay R-chart.</p></div><div class="card "><h3>Tần suất</h3><p>Theo năng lực chuyền và khối lượng công việc, nhưng phải phát hiện được dịch chuyển kịp thời.</p></div></div></div><div><table class="tbl "><tr><th>Thời lượng sản xuất</th><th>Tổng số đơn vị mỗi lô</th></tr><tr><td>Trên 2 giờ</td><td>Ít nhất <b>90</b></td></tr><tr><td>Từ 2 giờ trở xuống</td><td>Ít nhất <b>30</b></td></tr></table><p class="small">Áp dụng số lớn hơn nếu luật nước bán yêu cầu nhiều hơn.</p></div></div><div class="callout ">Hiệu quả kiểm soát đo bằng <b>thời gian trung bình đến tín hiệu</b> (ATS): dịch chuyển càng nhỏ, càng lâu phát hiện.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Đọc biểu đồ: trung bình lệch</h2>
+  <div class="body">
+<div class="cols "><div><svg class="chart" viewBox="0 0 500 290" role="img" aria-label="Trung bình thấp"><rect x="74.0" y="14.0" width="408.0" height="26.2" rx="0" style="fill:var(--bad-soft);opacity:1"/><rect x="74.0" y="40.2" width="408.0" height="31.2" rx="0" style="fill:var(--warn-soft);opacity:1"/><rect x="74.0" y="196.5" width="408.0" height="31.2" rx="0" style="fill:var(--warn-soft);opacity:1"/><rect x="74.0" y="227.8" width="408.0" height="26.2" rx="0" style="fill:var(--bad-soft);opacity:1"/><line x1="74.0" y1="40.2" x2="482.0" y2="40.2" style="stroke:var(--bad);stroke-width:2"/><line x1="74.0" y1="71.5" x2="482.0" y2="71.5" style="stroke:var(--warn);stroke-width:2" stroke-dasharray="6 4"/><line x1="74.0" y1="134.0" x2="482.0" y2="134.0" style="stroke:var(--brand);stroke-width:2.5"/><text x="68.0" y="45.2" text-anchor="end" style="fill:var(--bad);font-size:14px;font-weight:700">CL</text><text x="68.0" y="76.5" text-anchor="end" style="fill:var(--warn);font-size:14px;font-weight:700">WL</text><text x="68.0" y="139.0" text-anchor="end" style="fill:var(--brand);font-size:14px;font-weight:700">M</text><line x1="74.0" y1="227.8" x2="482.0" y2="227.8" style="stroke:var(--bad);stroke-width:2"/><line x1="74.0" y1="196.5" x2="482.0" y2="196.5" style="stroke:var(--warn);stroke-width:2" stroke-dasharray="6 4"/><text x="68.0" y="232.8" text-anchor="end" style="fill:var(--bad);font-size:14px;font-weight:700">CL</text><text x="68.0" y="201.5" text-anchor="end" style="fill:var(--warn);font-size:14px;font-weight:700">WL</text><path d="M99.5 121.5 L150.5 143.4 L201.5 162.1 L252.5 177.8 L303.5 205.9 L354.5 212.1 L405.5 193.4 L456.5 218.4" style="stroke:var(--ink-2);stroke-width:2;fill:none;fill-opacity:1"/><circle cx="99.5" cy="121.5" r="4.5" style="fill:var(--ink)"/><circle cx="150.5" cy="143.4" r="4.5" style="fill:var(--ink)"/><circle cx="201.5" cy="162.1" r="4.5" style="fill:var(--ink)"/><circle cx="252.5" cy="177.8" r="4.5" style="fill:var(--ink)"/><circle cx="303.5" cy="205.9" r="7" style="fill:var(--bad)"/><circle cx="354.5" cy="212.1" r="7" style="fill:var(--bad)"/><circle cx="405.5" cy="193.4" r="4.5" style="fill:var(--ink)"/><circle cx="456.5" cy="218.4" r="4.5" style="fill:var(--ink)"/><text x="303.5" y="231.9" text-anchor="middle" style="fill:var(--bad);font-size:14px;font-weight:700"></text><text x="354.5" y="238.1" text-anchor="middle" style="fill:var(--bad);font-size:14px;font-weight:700">Quy tắc 2</text></svg></div><div><svg class="chart" viewBox="0 0 500 290" role="img" aria-label="Trung bình cao"><rect x="74.0" y="14.0" width="408.0" height="26.2" rx="0" style="fill:var(--bad-soft);opacity:1"/><rect x="74.0" y="40.2" width="408.0" height="31.2" rx="0" style="fill:var(--warn-soft);opacity:1"/><rect x="74.0" y="196.5" width="408.0" height="31.2" rx="0" style="fill:var(--warn-soft);opacity:1"/><rect x="74.0" y="227.8" width="408.0" height="26.2" rx="0" style="fill:var(--bad-soft);opacity:1"/><line x1="74.0" y1="40.2" x2="482.0" y2="40.2" style="stroke:var(--bad);stroke-width:2"/><line x1="74.0" y1="71.5" x2="482.0" y2="71.5" style="stroke:var(--warn);stroke-width:2" stroke-dasharray="6 4"/><line x1="74.0" y1="134.0" x2="482.0" y2="134.0" style="stroke:var(--brand);stroke-width:2.5"/><text x="68.0" y="45.2" text-anchor="end" style="fill:var(--bad);font-size:14px;font-weight:700">CL</text><text x="68.0" y="76.5" text-anchor="end" style="fill:var(--warn);font-size:14px;font-weight:700">WL</text><text x="68.0" y="139.0" text-anchor="end" style="fill:var(--brand);font-size:14px;font-weight:700">M</text><line x1="74.0" y1="227.8" x2="482.0" y2="227.8" style="stroke:var(--bad);stroke-width:2"/><line x1="74.0" y1="196.5" x2="482.0" y2="196.5" style="stroke:var(--warn);stroke-width:2" stroke-dasharray="6 4"/><text x="68.0" y="232.8" text-anchor="end" style="fill:var(--bad);font-size:14px;font-weight:700">CL</text><text x="68.0" y="201.5" text-anchor="end" style="fill:var(--warn);font-size:14px;font-weight:700">WL</text><path d="M99.5 140.2 L150.5 118.4 L201.5 109.0 L252.5 87.1 L303.5 59.0 L354.5 52.7 L405.5 68.4 L456.5 46.5" style="stroke:var(--ink-2);stroke-width:2;fill:none;fill-opacity:1"/><circle cx="99.5" cy="140.2" r="4.5" style="fill:var(--ink)"/><circle cx="150.5" cy="118.4" r="4.5" style="fill:var(--ink)"/><circle cx="201.5" cy="109.0" r="4.5" style="fill:var(--ink)"/><circle cx="252.5" cy="87.1" r="4.5" style="fill:var(--ink)"/><circle cx="303.5" cy="59.0" r="7" style="fill:var(--bad)"/><circle cx="354.5" cy="52.7" r="7" style="fill:var(--bad)"/><circle cx="405.5" cy="68.4" r="4.5" style="fill:var(--ink)"/><circle cx="456.5" cy="46.5" r="4.5" style="fill:var(--ink)"/><text x="303.5" y="46.0" text-anchor="middle" style="fill:var(--bad);font-size:14px;font-weight:700"></text><text x="354.5" y="39.7" text-anchor="middle" style="fill:var(--bad);font-size:14px;font-weight:700">Quy tắc 2</text></svg></div></div><div class="cols "><div><div class="callout bad"><b>Thấp:</b> rủi ro tuân thủ. Chỉnh tăng.</div></div><div><div class="callout warn"><b>Cao:</b> rót dư. Chỉnh giảm.</div></div></div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/chart.svg" alt="">
+  <h2>Đọc biểu đồ: 5 quy tắc</h2>
+  <div class="body">
+<table class="tbl "><tr><th>#</th><th>Tín hiệu</th><th>Ý nghĩa thường gặp</th></tr><tr><td>1</td><td>Một điểm ngoài CL</td><td>Dịch chuyển hoặc biến thiên tăng</td></tr><tr><td>2</td><td>Hai điểm liên tiếp trong vùng cảnh báo, cùng phía</td><td>Dịch chuyển: chỉnh trung bình</td></tr><tr><td>3</td><td>Hai điểm trong vùng cảnh báo, hai phía đối diện</td><td>Biến thiên tăng: kiểm tra sản phẩm, đầu chiết</td></tr><tr><td>4</td><td>10 điểm liên tiếp cùng phía đường giữa</td><td>Dịch chuyển nhỏ, bền</td></tr><tr><td>5</td><td>7 điểm liên tiếp tăng hoặc giảm</td><td>Xu hướng trôi</td></tr></table><div class="callout ">Xử lý tín hiệu mạnh trước (quy tắc 1 trước quy tắc 5). Trên biểu đồ R chỉ dùng quy tắc 1.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Khi biến thiên tăng</h2>
+  <div class="body">
+<div class="cols w6040"><div><svg class="chart" viewBox="0 0 540 300" role="img" aria-label="Biểu đồ dao động mạnh"><rect x="74.0" y="14.0" width="448.0" height="27.3" rx="0" style="fill:var(--bad-soft);opacity:1"/><rect x="74.0" y="41.3" width="448.0" height="32.6" rx="0" style="fill:var(--warn-soft);opacity:1"/><rect x="74.0" y="204.1" width="448.0" height="32.6" rx="0" style="fill:var(--warn-soft);opacity:1"/><rect x="74.0" y="236.7" width="448.0" height="27.3" rx="0" style="fill:var(--bad-soft);opacity:1"/><line x1="74.0" y1="41.3" x2="522.0" y2="41.3" style="stroke:var(--bad);stroke-width:2"/><line x1="74.0" y1="73.9" x2="522.0" y2="73.9" style="stroke:var(--warn);stroke-width:2" stroke-dasharray="6 4"/><line x1="74.0" y1="139.0" x2="522.0" y2="139.0" style="stroke:var(--brand);stroke-width:2.5"/><text x="68.0" y="46.3" text-anchor="end" style="fill:var(--bad);font-size:14px;font-weight:700">CL</text><text x="68.0" y="78.9" text-anchor="end" style="fill:var(--warn);font-size:14px;font-weight:700">WL</text><text x="68.0" y="144.0" text-anchor="end" style="fill:var(--brand);font-size:14px;font-weight:700">M</text><line x1="74.0" y1="236.7" x2="522.0" y2="236.7" style="stroke:var(--bad);stroke-width:2"/><line x1="74.0" y1="204.1" x2="522.0" y2="204.1" style="stroke:var(--warn);stroke-width:2" stroke-dasharray="6 4"/><text x="68.0" y="241.7" text-anchor="end" style="fill:var(--bad);font-size:14px;font-weight:700">CL</text><text x="68.0" y="209.1" text-anchor="end" style="fill:var(--warn);font-size:14px;font-weight:700">WL</text><path d="M102.0 122.7 L158.0 165.0 L214.0 99.9 L270.0 187.8 L326.0 64.1 L382.0 217.1 L438.0 67.4 L494.0 223.6" style="stroke:var(--ink-2);stroke-width:2;fill:none;fill-opacity:1"/><circle cx="102.0" cy="122.7" r="4.5" style="fill:var(--ink)"/><circle cx="158.0" cy="165.0" r="4.5" style="fill:var(--ink)"/><circle cx="214.0" cy="99.9" r="4.5" style="fill:var(--ink)"/><circle cx="270.0" cy="187.8" r="4.5" style="fill:var(--ink)"/><circle cx="326.0" cy="64.1" r="7" style="fill:var(--bad)"/><circle cx="382.0" cy="217.1" r="7" style="fill:var(--bad)"/><circle cx="438.0" cy="67.4" r="4.5" style="fill:var(--ink)"/><circle cx="494.0" cy="223.6" r="4.5" style="fill:var(--ink)"/><text x="326.0" y="51.1" text-anchor="middle" style="fill:var(--bad);font-size:14px;font-weight:700"></text><text x="382.0" y="243.1" text-anchor="middle" style="fill:var(--bad);font-size:14px;font-weight:700">Quy tắc 3</text></svg></div><div><h3>Kiểm tra theo thứ tự</h3><ul><li>Thiết bị trước: van, ống nối, độ dính, hỏng hóc.</li><li>Sau đó thử đầu chiết.</li><li>Tính chất sản phẩm: tỷ trọng bột, nhiệt độ.</li><li>Nghi ngờ thì ghi chú lại.</li></ul><div class="callout ">Xây dựng <b>kế hoạch hành động khi mất kiểm soát</b> (OCAP) và sơ đồ xương cá cho từng chuyền.</div></div></div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/chart.svg" alt="">
+  <h2>Biểu đồ R: vì sao cần?</h2>
+  <div class="body">
+<div class="cols "><div><table class="tbl "><tr><th>n</th><th>D<sub>4</sub></th><th>d<sub>2</sub></th><th>D<sub>4</sub> × d<sub>2</sub></th></tr><tr><td>3</td><td>2,574</td><td>1,693</td><td>4,357</td></tr><tr><td>4</td><td>2,282</td><td>2,059</td><td>4,699</td></tr><tr><td>5</td><td>2,115</td><td>2,326</td><td>4,919</td></tr><tr><td>6</td><td>2,004</td><td>2,534</td><td>5,078</td></tr><tr><td>8</td><td>1,864</td><td>2,847</td><td>5,306</td></tr><tr><td>12</td><td>1,717</td><td>3,258</td><td>5,593</td></tr></table></div><div><ul><li>Phát hiện <b>S<sub>m</sub> tăng</b> dù trung bình vẫn trong giới hạn, ví dụ đầu chiết lệch.</li></ul><div class="formula"><span>UCL<sub>R</sub> = S<sub>m</sub> × D<sub>4</sub> × d<sub>2</sub></span></div><div class="callout warn"><b>Ví dụ:</b> 12 đầu chiết, S<sub>m</sub> = 0,1 g → UCL = 0,559 g. Đo min 2,45, max 3,25: R = 0,80 g vượt giới hạn, cần thử đầu chiết.</div></div></div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/filler.svg" alt="">
+  <h2>Lô ngắn: ba cách xử lý</h2>
+  <div class="body">
+<div class="cards" style="--n:3"><div class="card "><h3>Dùng checkweigher</h3><p>Ưu tiên nhất nhưng cần đầu tư.</p></div><div class="card warn"><h3>Gộp lô trong ngày</h3><p>Chỉ khi thay đổi nhỏ (như đổi nhãn) và không khác biệt đáng kể giữa các lô. Cần quy trình đảm bảo truy xuất.</p></div><div class="card "><h3>Lấy mẫu ở kho</h3><p>Bổ sung cho đủ số lượng, trải đều toàn lô.</p></div></div><div class="callout ">Giới hạn biểu đồ không phải dữ liệu cố định: cập nhật khi S<sub>m</sub>, S<sub>ref</sub> hoặc M thay đổi, rà soát mẫu biểu ít nhất mỗi năm.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Giám sát với checkweigher: run chart</h2>
+  <div class="body">
+<div class="cols w6040"><div><svg class="chart" viewBox="0 0 560 280" role="img" aria-label="Run chart trung bình tích luỹ"><rect x="74.0" y="14.0" width="468.0" height="25.2" rx="0" style="fill:var(--bad-soft);opacity:1"/><rect x="74.0" y="39.2" width="468.0" height="46.7" rx="0" style="fill:var(--warn-soft);opacity:1"/><rect x="74.0" y="172.1" width="468.0" height="46.7" rx="0" style="fill:var(--warn-soft);opacity:1"/><rect x="74.0" y="218.8" width="468.0" height="25.2" rx="0" style="fill:var(--bad-soft);opacity:1"/><line x1="74.0" y1="39.2" x2="542.0" y2="39.2" style="stroke:var(--bad);stroke-width:2"/><line x1="74.0" y1="85.9" x2="542.0" y2="85.9" style="stroke:var(--warn);stroke-width:2" stroke-dasharray="6 4"/><line x1="74.0" y1="129.0" x2="542.0" y2="129.0" style="stroke:var(--brand);stroke-width:2.5"/><text x="68.0" y="44.2" text-anchor="end" style="fill:var(--bad);font-size:14px;font-weight:700"></text><text x="68.0" y="90.9" text-anchor="end" style="fill:var(--warn);font-size:14px;font-weight:700"></text><text x="68.0" y="134.0" text-anchor="end" style="fill:var(--brand);font-size:14px;font-weight:700">M</text><line x1="74.0" y1="218.8" x2="542.0" y2="218.8" style="stroke:var(--bad);stroke-width:2"/><line x1="74.0" y1="172.1" x2="542.0" y2="172.1" style="stroke:var(--warn);stroke-width:2" stroke-dasharray="6 4"/><text x="68.0" y="223.8" text-anchor="end" style="fill:var(--bad);font-size:14px;font-weight:700"></text><text x="68.0" y="177.1" text-anchor="end" style="fill:var(--warn);font-size:14px;font-weight:700"></text><path d="M97.4 164.9 L144.2 143.4 L191.0 125.4 L237.8 118.2 L284.6 121.8 L331.4 114.6 L378.2 118.2 L425.0 116.4 L471.8 118.2 L518.6 117.5" style="stroke:var(--ink-2);stroke-width:2;fill:none;fill-opacity:1"/><circle cx="97.4" cy="164.9" r="4.5" style="fill:var(--ink)"/><circle cx="144.2" cy="143.4" r="4.5" style="fill:var(--ink)"/><circle cx="191.0" cy="125.4" r="4.5" style="fill:var(--ink)"/><circle cx="237.8" cy="118.2" r="4.5" style="fill:var(--ink)"/><circle cx="284.6" cy="121.8" r="4.5" style="fill:var(--ink)"/><circle cx="331.4" cy="114.6" r="4.5" style="fill:var(--ink)"/><circle cx="378.2" cy="118.2" r="4.5" style="fill:var(--ink)"/><circle cx="425.0" cy="116.4" r="4.5" style="fill:var(--ink)"/><circle cx="471.8" cy="118.2" r="4.5" style="fill:var(--ink)"/><circle cx="518.6" cy="117.5" r="4.5" style="fill:var(--ink)"/></svg></div><div><ul><li><b>Trung bình kỳ</b> (ví dụ 15 phút): để chỉnh quy trình.</li><li><b>Trung bình tích luỹ M<sub>i</sub></b>: tình trạng tuân thủ của lô, phải ≥ M khi kết thúc.</li><li><b>S<sub>pi</sub> tích luỹ</b>: phải ≤ S<sub>ref</sub>; vượt thì thử đầu chiết.</li></ul></div></div><div class="callout ">100% đơn vị được cân, nên không cần kế hoạch lấy mẫu. Thống kê lưu định kỳ và theo số lượng đơn vị.</div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/conveyor.svg" alt="">
+  <h2>Đọc phiếu thống kê của checkweigher</h2>
+  <div class="body">
+<table class="tbl "><tr><th>Chỉ tiêu</th><th>Ví dụ</th><th>Dùng để</th></tr><tr><td>Tổng số kiểm tra</td><td>684</td><td>Đối chiếu sản lượng</td></tr><tr><td>Chấp nhận / Loại</td><td>682 / 2</td><td>Tính tỷ lệ loại</td></tr><tr><td>Dưới TU<sub>1</sub> / TU<sub>2</sub></td><td>0 / 0</td><td>So với yêu cầu luật</td></tr><tr><td>Trung bình</td><td>100,55 g</td><td>So với M</td></tr><tr><td>Độ lệch chuẩn</td><td>1,14 g</td><td>So với S<sub>ref</sub></td></tr></table><div class="callout ">Trung bình và SD tính trên <b>mọi đơn vị đã cân</b>, kể cả đơn vị bị loại. Nếu máy không nối hệ thống, in phiếu cuối lô và lưu kèm hồ sơ.</div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/filler.svg" alt="">
+  <h2>Vòng phản hồi và trường hợp đặc biệt</h2>
+  <div class="body">
+<div class="cards" style="--n:2"><div class="card "><h3>Vòng phản hồi</h3><p>Checkweigher tự gửi lệnh chỉnh về máy chiết. Giúp giảm biến thiên, nhưng người vận hành vẫn phải xem run chart.</p></div><div class="card warn"><h3>Luật không chấp nhận dữ liệu CW</h3><p>Dùng thêm cân tĩnh theo kế hoạch song song và xuất xưởng bằng dữ liệu đó. Checkweigher chỉ để loại hàng thiếu.</p></div><div class="card "><h3>Cân trước khi bọc / đầu chiết trọng lượng</h3><p>Phải chứng minh được đáp ứng luật; có nơi cần cơ quan chấp thuận (tham khảo WELMEC 6.4).</p></div><div class="card warn"><h3>Cân tay 100% không tự ghi</h3><p>Phải có bằng chứng quy trình trong kiểm soát; nếu không thì dùng SPC như lấy mẫu.</p></div></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Tóm tắt Module 6</h2>
+  <div class="body side"><div class="side-text"><ul><li>Không chỉnh theo từng điểm: hãy dùng quy tắc biểu đồ.</li><li>X-bar cho trung bình, R cho biến thiên, giới hạn từ S<sub>m</sub>.</li><li>Cân tĩnh: ít nhất 90 đơn vị/lô (lô ≤ 2 giờ: 30).</li><li>Checkweigher: run chart trung bình và S<sub>p</sub>, đích M<sub>i</sub> ≥ M, S<sub>pi</sub> ≤ S<sub>ref</sub>.</li><li>Mọi vi phạm đều dẫn tới điều tra và ghi nhận.</li></ul></div><div class="side-art"><img src="art/stamp.svg" alt=""></div>
+  </div>
+</section>
+
+</div>
+<script src="deck.js"></script>
+</body>
+</html>

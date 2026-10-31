@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Net Content 5 · Quản lý bì</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body class="m5" data-module="Net Content · Module 5 — Quản lý bì">
+<div class="deck">
+
+<section class="slide title">
+  <div class="hero-art"><img src="art/jar.svg" alt=""></div><div class="eyebrow">Net Content Management · Module 5</div>
+  <h1>Quản lý bì (<span class="en">Tare</span>)</h1>
+  <div class="sub">CP3: khối lượng tịnh được suy ra từ cả bì. Bì sai thì mọi con số sau đó đều sai.</div>
+  <div class="meta"><span class="chip">SDtare</span><span class="chip">Bì danh nghĩa</span><span class="chip">Bao gói nhóm</span><span class="chip">Kiểm tra theo ca</span></div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/jar.svg" alt="">
+  <h2>Khi nào phải quản lý bì?</h2>
+  <div class="body">
+<div class="cols "><div><div class="card warn"><h3>Cần</h3><p>Sản phẩm được cân <b>sau khi</b> đã rót hoặc bọc: gross trừ bì mới ra net.</p></div></div><div><div class="card"><h3>Không cần</h3><p>Sản phẩm được cân <b>trước khi</b> bọc: thanh ngũ cốc, tấm sô-cô-la.</p></div></div></div><div class="formula"><span>Tịnh</span><em>=</em><span>Tổng</span><em>−</em><span>Bì</span></div><div class="callout ">Bao bì là một nguồn biến thiên lớn của quy trình, nên bì là một phần của tuân thủ và là dữ liệu xuất xưởng.</div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/jar.svg" alt="">
+  <h2>Bì trung bình hay bì riêng từng đơn vị?</h2>
+  <div class="body">
+<div class="flow" style="--n:3"><div><b>Lấy mẫu</b>Cân 100 bao bì rỗng, tính SD<sub>tare</sub> theo nhóm sản phẩm.</div><div><b>So sánh</b>SD<sub>tare</sub> &lt; TNE/5 ?</div><div><b>Quyết định</b>Có: bì trung bình. Không: bì riêng.</div></div><div class="cards" style="--n:2"><div class="card "><h3>Bì trung bình</h3><p>Phần lớn hộp giấy, túi màng, lon nhỏ.</p></div><div class="card warn"><h3>Bì riêng</h3><p>Hũ thuỷ tinh, lon cỡ lớn (E trên 2 kg).</p></div></div><div class="callout warn">Nghiên cứu do QA thực hiện, lập hồ sơ. Không lấy SD<sub>tare</sub> từ đặc tính của nhà cung cấp.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>SD<sub>tare</sub> phải phản ánh biến thiên thật</h2>
+  <div class="body side"><div class="side-text"><ul><li>Trong <b>một lô</b> bao bì.</li><li>Giữa <b>các lô</b> bao bì.</li><li>Do <b>điều kiện bảo quản</b>: ví dụ giấy hút ẩm.</li><li>Lấy ít nhất <b>100 mẫu</b> từ nhiều lô.</li></ul><div class="callout ">Làm việc với nhà cung cấp để giảm biến thiên, nhưng số liệu dùng để kiểm soát là số do nhà máy đo được. Rà soát dữ liệu bì ít nhất mỗi năm.</div></div><div class="side-art"><img src="art/bell.svg" alt=""></div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/jar.svg" alt="">
+  <h2>Cùng vật liệu, nhiều cỡ</h2>
+  <div class="body">
+<div class="cols "><div><ul><li>Xác định SD tương đối từ một cỡ.</li><li>Quy đổi sang cỡ khác.</li><li>Xác nhận lại bằng dữ liệu theo dõi.</li></ul></div><div><div class="card"><h3>Ví dụ</h3><p>SD = 0,5 g với bì 200 g → SD tương đối = 0,25%.</p><p>Bì 500 g: 500 × 0,25% = <b>1,25 g</b>.</p></div></div></div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/jar.svg" alt="">
+  <h2>Bao bì nhiều thành phần</h2>
+  <div class="body">
+<div class="cols "><div><div class="formula"><span>SD<sub>tare</sub> = √( SD₁² + SD₂² + SD₃² )</span></div><p>Phương sai cộng được, độ lệch chuẩn thì không.</p></div><div><div class="card"><h3>Ví dụ</h3><p>Hộp 0,9 g · Khay 0,3 g · Màng 0,1 g</p><p>√(0,81 + 0,09 + 0,01) = <b>0,95 g</b></p></div></div></div><div class="callout ">Trung bình bì bằng tổng bì trung bình của các thành phần.</div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/jar.svg" alt="">
+  <h2>Bao gói nhóm: 100 thanh trong một hộp</h2>
+  <div class="body">
+<div class="cols "><div><div class="formula"><span>SD<sub>tare</sub> = √( SD<sub>hộp</sub>² + 100 × SD<sub>đơn vị</sub>² )</span></div><p>√(0,6² + 100 × 0,2²) = <b>2,09 g</b></p></div><div><div class="card"><h3>Theo dõi</h3><p>Bì danh nghĩa: 10 + 100 × 1 = 110 g.</p><p>Thực tế (9 hộp, 9 đơn vị): 10,2 + 100 × 0,98 = 108,2 g.</p><p>|110 − 108,2| = 1,8 g &lt; 2,09 g → <b>giữ nguyên</b>.</p></div></div></div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/jar.svg" alt="">
+  <h2>Bao gói dạng dây</h2>
+  <div class="body">
+<div class="cols "><div><ul><li>Tối thiểu <b>9</b> bao bì rỗng.</li><li>Tối thiểu <b>3</b> dây.</li><li>Ví dụ dây 5 gói: cân 3 dây rỗng là đủ cả hai điều kiện.</li></ul></div><div><div class="callout ">Cân từng dây, rồi quy về từng gói để áp dụng quy tắc kiểm tra bì như bình thường.</div></div></div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/jar.svg" alt="">
+  <h2>Bì danh nghĩa và kiểm tra hằng ngày</h2>
+  <div class="body">
+<div class="flow" style="--n:4"><div><b>Khởi tạo</b>Cân ít nhất 30 bao bì từ nhiều lô, lấy trung bình làm bì danh nghĩa.</div><div><b>Cài đặt</b>Nhập vào cân hoặc hệ thống, theo từng định dạng.</div><div><b>Mỗi ca</b>Cân ít nhất 9 bao bì, ra bì thực tế; cả khi đổi lô bao bì nếu có chênh lệch.</div><div><b>So sánh</b>Lệch vượt ngưỡng thì cập nhật.</div></div><div class="formula"><span>|thực tế − danh nghĩa|</span><em>≤</em><span>3 × SD<sub>tare</sub> / √n</span></div><div class="callout ">Với n = 9, ngưỡng đơn giản là <b>SD<sub>tare</sub></b>. Khi đã chứng minh ổn định, có thể điều chỉnh tần suất tại cơ sở.</div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/jar.svg" alt="">
+  <h2>Ví dụ theo dõi bì</h2>
+  <div class="body">
+<table class="tbl "><tr><th>Ca</th><th>Giờ</th><th>Thực tế</th><th>Danh nghĩa</th><th>Chênh</th><th>Hành động</th></tr><tr><td>1</td><td>06:00</td><td>10,7</td><td>10,6</td><td>0,1</td><td>Giữ nguyên</td></tr><tr><td>2</td><td>14:00</td><td>10,6</td><td>10,6</td><td>0,0</td><td>Giữ nguyên</td></tr><tr><td>3</td><td>22:00</td><td>10,9</td><td>10,6</td><td><b>0,3</b></td><td><b>Cập nhật thành 10,9</b></td></tr><tr><td>1 (ngày sau)</td><td>06:00</td><td>10,8</td><td>10,9</td><td>0,1</td><td>Giữ nguyên</td></tr></table><div class="callout ">E = 100 g, SD<sub>tare</sub> = 0,2 g, n = 9. Chỉ cập nhật khi chênh vượt 0,2 g, tránh chỉnh theo nhiễu.</div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/jar.svg" alt="">
+  <h2>Bì riêng từng đơn vị: các cách làm</h2>
+  <div class="body">
+<div class="cards" style="--n:2"><div class="card "><h3>Cân bì từng đơn vị</h3><p>Dùng cho chuyền rất chậm.</p></div><div class="card "><h3>Cân rỗng, rót, cân lại</h3><p>Tự động hoá cho chuyền nhanh, hoặc đánh dấu một số đơn vị theo tần suất quy định.</p></div><div class="card warn"><h3>Cân phần ruột</h3><p>Đổ sản phẩm ra vật chứa khác và cân, theo tần suất; là phép đo phá huỷ.</p></div><div class="card "><h3>Tự động trên chuyền</h3><p>Cân vỏ trước khi rót, tính net từng đơn vị. Đầu tư cao nhưng tin cậy.</p></div></div>
+  </div>
+</section>
+
+<section class="slide has-art"><img class="corner-art" src="art/warning.svg" alt="">
+  <h2>Bì sai ảnh hưởng thế nào?</h2>
+  <div class="body">
+<table class="tbl "><tr><th>Sai lệch</th><th>Kết quả đọc</th><th>Hậu quả</th></tr><tr><td>Bì danh nghĩa thấp hơn thực tế</td><td>Net đọc được cao hơn thực</td><td>Nguy cơ <b>thiếu</b> lượng, không tuân thủ</td></tr><tr><td>Bì danh nghĩa cao hơn thực tế</td><td>Net đọc được thấp hơn thực</td><td>Máy bị chỉnh lên, <b>rót dư</b></td></tr></table><div class="callout bad"><b>Ví dụ:</b> E = 500 g, bì danh nghĩa 6 g, bì thực tế 7 g, M<sub>0</sub> ghi nhận 500 g. M<sub>0</sub> thật = 500 − (7 − 6) = <b>499 g</b>: không được xuất xưởng.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Tóm tắt Module 5</h2>
+  <div class="body side"><div class="side-text"><ul><li>Cân sau bao gói là phải quản lý bì.</li><li>SD<sub>tare</sub> &lt; TNE/5 thì dùng bì trung bình; ngược lại dùng bì riêng.</li><li>SD<sub>tare</sub> từ ít nhất 100 mẫu; bì danh nghĩa từ ít nhất 30 mẫu.</li><li>Mỗi ca cân ít nhất 9 bao bì; n = 9 thì ngưỡng là SD<sub>tare</sub>.</li><li>Bì sai làm sai M<sub>0</sub>, nên hồ sơ bì là đầu vào xuất xưởng.</li></ul></div><div class="side-art"><img src="art/stamp.svg" alt=""></div>
+  </div>
+</section>
+
+</div>
+<script src="deck.js"></script>
+</body>
+</html>
