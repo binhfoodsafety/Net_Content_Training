@@ -1,5 +1,5 @@
 // Lưu sẵn khoá học để dùng khi không có mạng. Có mạng thì luôn lấy bản mới nhất.
-var CACHE = 'nc-v1';
+var CACHE = 'nc-v2';
 var FILES = [
   './',
   './icons/apple-touch-icon.png',
@@ -49,7 +49,7 @@ var FILES = [
 ];
 
 self.addEventListener('install', function (e) {
-  e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(FILES); }).then(function () { return self.skipWaiting(); }));
+  e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(FILES.map(function (f) { return new Request(f, { cache: 'no-cache' }); })); }).then(function () { return self.skipWaiting(); }));
 });
 
 self.addEventListener('activate', function (e) {
@@ -58,11 +58,12 @@ self.addEventListener('activate', function (e) {
   }).then(function () { return self.clients.claim(); }));
 });
 
-// Chỉ xử lý file của khoá học; font và giọng đọc đi thẳng ra mạng
+// Chỉ xử lý file của khoá học; font và giọng đọc đi thẳng ra mạng.
+// no-cache: hỏi lại máy chủ thay vì dùng bản trình duyệt còn giữ 10 phút.
 self.addEventListener('fetch', function (e) {
   var url = new URL(e.request.url);
   if (e.request.method !== 'GET' || url.origin !== location.origin) return;
-  e.respondWith(fetch(e.request).then(function (res) {
+  e.respondWith(fetch(e.request.url, { cache: 'no-cache' }).then(function (res) {
     if (res.ok) {
       var copy = res.clone();
       caches.open(CACHE).then(function (c) { c.put(url.origin + url.pathname, copy); });
