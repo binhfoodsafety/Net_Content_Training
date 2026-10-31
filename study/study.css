@@ -86,6 +86,9 @@ kbd { font: inherit; font-size: 11px; border: 1px solid var(--line); border-radi
 .toast.show { opacity: 1; }
 
 @media (max-width: 640px) {
+  .bar label { display: none; }
+  /* Từ 16px trở lên iOS mới không tự phóng to khi chọn */
+  select { font-size: 16px; }
   .quiz-options { grid-template-columns: 1fr; }
   .card-face { min-height: 230px; padding: 24px 18px; }
   .panel { padding: 14px; }

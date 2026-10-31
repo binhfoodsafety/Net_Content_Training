@@ -163,7 +163,7 @@ body.reading .cols, body.reading .cols.c3, body.reading .cols.w6040 { grid-templ
 body.reading .cards { grid-template-columns: 1fr 1fr; }
 body.reading .flow { grid-template-columns: 1fr 1fr; }
 body.reading .statement { font-size: 22px; padding: 16px 0; }
-body.reading .nav, body.reading .progress, body.reading .tts-note, body.reading .say-box { display: none; }
+body.reading .progress, body.reading .say-box { display: none; }
 body.reading table.tbl { font-size: 13px; display: block; overflow-x: auto; }
 
 @media print {
@@ -251,4 +251,25 @@ body.reading .body.side { flex-direction: column; align-items: stretch; }
 body.reading .side-art { flex: 0 0 150px; width: 150px; height: 150px; margin: 8px auto 0; }
 body.reading .side-art img { width: 110px; height: 110px; }
 body.reading .chart { max-height: none; }
+
+/* Thanh thuyết minh ở dạng cuộn: dòng trạng thái ở trên, nút ở dưới */
+body.reading .nav { height: auto; padding: 22px 8px calc(8px + env(safe-area-inset-bottom)); gap: 6px; justify-content: center; }
+body.reading .nav .grp.audio { flex: none; padding-left: 0; border-left: 0; }
+body.reading .nav .grp.end, body.reading .nav .lbl { display: none; }
+body.reading .nav label:first-of-type { display: flex; }
+body.reading .nav label:last-of-type { display: none; }
+body.reading .nav button { padding: 6px 10px; min-height: 40px; }
+body.reading .nav button.primary { min-width: 104px; }
+body.reading .nav .count { min-width: 50px; }
+/* Từ 16px trở lên iOS mới không tự phóng to khi chọn */
+body.reading .nav select { font-size: 16px; padding: 4px 2px; min-height: 40px; }
+body.reading .nav .status { display: block; position: absolute; left: 10px; right: 10px; top: 4px; font-size: 11px; line-height: 1.4; text-align: center; }
+body.reading .tts-note { position: static; opacity: 1; padding: 0 12px calc(92px + env(safe-area-inset-bottom)); text-align: center; }
+body.reading.tts-on .slide.active { outline: 2px solid var(--warn); outline-offset: 2px; }
+body.reading #exitRead { bottom: 84px; }
+body.reading .nav [data-go="prev"], body.reading .nav [data-go="next"] { padding: 6px 14px; }
+/* Điện thoại đã có phím âm lượng, nên nhường chỗ cho các nút khác */
+@media (max-width: 430px) { body.reading .nav [data-tts="mute"] { display: none; } }
+@media (max-width: 370px) { body.reading .nav [data-tts="stop"] { display: none; } }
+@media (max-width: 340px) { body.reading .nav .count { min-width: 44px; } body.reading .nav button.primary { min-width: 92px; } }
 @media print { .slide { box-shadow: none; } }

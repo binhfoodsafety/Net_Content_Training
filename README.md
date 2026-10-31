@@ -30,7 +30,7 @@ Trên iPhone: mở trang bằng Safari, Chia sẻ → Thêm vào MH chính. Andr
 ## Trình chiếu
 
 - `←` `→` / nút Trước – Tiếp, `F` toàn màn hình, `P` phát/tạm dừng thuyết minh; vuốt trên điện thoại.
-- Màn hình hẹp (< 640 px) tự chuyển sang dạng cuộn để đọc.
+- Màn hình hẹp (< 640 px) tự chuyển sang dạng cuộn, có thanh thuyết minh ở đáy và tự cuộn theo slide đang đọc.
 - Thuyết minh dùng Google Translate TTS, cần Internet; lời đọc được gửi tới Google.
 - Lời đọc mặc định lấy từ chữ trên slide. Slide nào cần lời đọc riêng thì thêm `<div class="say">…</div>` trong `<section class="slide">`.
 

@@ -82,8 +82,11 @@
     .wrap { padding: 18px 16px 36px; }
     .modules, .notes { grid-template-columns: 1fr; }
     .frame { aspect-ratio: auto; height: 72vh; }
-    select { min-width: 0; width: 100%; max-width: none; }
-    .bar .btn { flex: 1; justify-content: center; }
+    .bar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .bar label, #playBtn { display: none; }
+    /* Từ 16px trở lên iOS mới không tự phóng to khi chọn */
+    select { grid-column: 1 / -1; min-width: 0; width: 100%; max-width: none; font-size: 16px; }
+    .bar .btn { justify-content: center; padding: 9px 2px; font-size: 13px; white-space: nowrap; }
   }
   header { background: linear-gradient(120deg, #0f172a 0%, #312e81 55%, #0f766e 100%); color: #fff; padding: 26px 28px; border-radius: 18px; }
   header .eyebrow { color: #fde68a; } header h1 { color: #fff; } header .lead { color: #e2e8f0; }
@@ -124,7 +127,7 @@
 
   <h2>Cách sử dụng</h2>
   <div class="notes">
-    <div class="note"><b>Điều khiển slide</b>Dùng <kbd>←</kbd> <kbd>→</kbd> hoặc nút Trước / Tiếp; <kbd>F</kbd> toàn màn hình; vuốt trái / phải trên điện thoại. Màn hình hẹp tự chuyển sang dạng cuộn.</div>
+    <div class="note"><b>Điều khiển slide</b>Dùng <kbd>←</kbd> <kbd>→</kbd> hoặc nút Trước / Tiếp; <kbd>F</kbd> toàn màn hình; vuốt trái / phải trên điện thoại. Màn hình hẹp tự chuyển sang dạng cuộn và vẫn có thanh thuyết minh ở đáy.</div>
     <div class="note"><b>Thuyết minh âm thanh</b>Bấm <kbd>▶ Phát</kbd> trên thanh dưới slide (hoặc <kbd>P</kbd>). Đọc xong tự chuyển slide; chỉnh tốc độ 0,9–1,4×; nút 📝 hiện lời đọc.</div>
     <div class="note"><b>Lưu ý về giọng đọc</b>Dùng Google Translate TTS nên cần Internet; nội dung lời đọc được gửi tới Google. Không gửi thông tin người học.</div>
     <div class="note"><b>Cài lên iPhone</b>Mở trang bằng Safari, bấm nút Chia sẻ rồi chọn <kbd>Thêm vào MH chính</kbd>. Sau khi mở một lần, slide, flashcard và quiz dùng được khi không có mạng; giọng đọc vẫn cần Internet.</div>
@@ -189,9 +192,7 @@
   }
 
   sel.addEventListener('change', function () { select(Number(sel.value)); });
-  // Khung hẹp (< 640px) hiển thị slide dạng cuộn, không có thanh thuyết minh: mở tab mới để trình chiếu
   document.getElementById('playBtn').addEventListener('click', function () {
-    if (frame.clientWidth < 640) { window.open(MODULES[Number(sel.value)].file, '_blank', 'noopener'); return; }
     try { frame.contentWindow.postMessage({ type: 'pt-play' }, location.origin); } catch (e) {}
     frame.focus();
   });

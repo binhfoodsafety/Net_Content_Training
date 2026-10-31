@@ -32,16 +32,16 @@
   nav.innerHTML =
     '<div class="grp">' +
       '<button type="button" data-go="first" title="Slide đầu (Home)" aria-label="Slide đầu">⏮</button>' +
-      '<button type="button" data-go="prev" title="Slide trước (←)">‹ Trước</button>' +
+      '<button type="button" data-go="prev" title="Slide trước (←)" aria-label="Slide trước">‹<span class="lbl"> Trước</span></button>' +
       '<span class="count"></span>' +
-      '<button type="button" data-go="next" title="Slide tiếp (→)">Tiếp ›</button>' +
+      '<button type="button" data-go="next" title="Slide tiếp (→)" aria-label="Slide tiếp"><span class="lbl">Tiếp </span>›</button>' +
     '</div>' +
     '<div class="grp audio">' +
       '<button type="button" class="primary" data-tts="play" title="Phát / tạm dừng thuyết minh (P)">▶ Phát</button>' +
       '<button type="button" data-tts="replay" title="Đọc lại slide này">↻ Đọc lại</button>' +
       '<button type="button" data-tts="stop" title="Dừng đọc">■</button>' +
       '<button type="button" data-tts="mute" aria-pressed="false" title="Tắt / bật tiếng">🔊</button>' +
-      '<label title="Tốc độ đọc">Tốc độ <select data-tts="rate">' +
+      '<label title="Tốc độ đọc"><span class="lbl">Tốc độ </span><select data-tts="rate" aria-label="Tốc độ đọc">' +
         [0.9, 1, 1.2, 1.4].map(function (r) { return '<option value="' + r + '">' + String(r).replace('.', ',') + '×</option>'; }).join('') +
       '</select></label>' +
       '<label title="Đọc xong tự chuyển slide"><input type="checkbox" data-tts="auto"> Tự chuyển</label>' +
@@ -169,6 +169,7 @@
     status: function (m) { statusEl.textContent = m; this.sync(); },
     sync: function () {
       playBtn.textContent = this.active ? (this.paused ? '▶ Tiếp tục' : 'Ⅱ Tạm dừng') : '▶ Phát';
+      document.body.classList.toggle('tts-on', this.active);
       muteBtn.textContent = this.muted ? '🔇' : '🔊';
       muteBtn.setAttribute('aria-pressed', String(this.muted));
       trackEl.style.width = (this.parts.length ? this.index / this.parts.length * 100 : 0) + '%';
@@ -240,7 +241,7 @@
       var advance = function () {
         if (token !== self.token || !self.auto) { self.active = false; self.sync(); return; }
         if (self.paused) { self.advanceTimer = setTimeout(advance, 100); return; }
-        show(n + 1, true);
+        goTo(n + 1, true);
         self.start();
       };
       this.advanceTimer = setTimeout(advance, 900);
@@ -284,6 +285,34 @@
     else if (changed && !fromTts && tts.active) tts.stop('Đã dừng đọc vì chuyển slide.');
   }
 
+  // Dạng cuộn: mọi slide cùng hiện, nên chuyển slide là cuộn tới slide đó.
+  // Dùng window.scrollTo để không cuộn theo trang chủ khi nằm trong iframe.
+  var holdSpy = 0;
+  function scrollToSlide(smooth) {
+    holdSpy = Date.now() + 900;
+    var top = slides[idx].getBoundingClientRect().top + window.pageYOffset - 12;
+    window.scrollTo({ top: top, behavior: smooth ? 'smooth' : 'auto' });
+  }
+  function goTo(i, fromTts) {
+    show(i, fromTts);
+    if (document.body.classList.contains('reading')) scrollToSlide(true);
+  }
+  // Khi tự cuộn, slide đang xem thành slide hiện tại để ▶ Phát đọc đúng chỗ
+  var spyQueued = false;
+  function spy() {
+    spyQueued = false;
+    if (!document.body.classList.contains('reading') || tts.active || Date.now() < holdSpy) return;
+    for (var i = 0; i < slides.length; i++) {
+      var r = slides[i].getBoundingClientRect();
+      if (r.top <= 60 && r.bottom > 60) { if (i !== idx) show(i, true); return; }
+    }
+  }
+  window.addEventListener('scroll', function () {
+    if (spyQueued) return;
+    spyQueued = true;
+    requestAnimationFrame(spy);
+  }, { passive: true });
+
   // Co chữ cho slide dài: giảm --fs đến khi nội dung vừa khung (tối thiểu 0.7)
   function fit(s) {
     if (document.body.classList.contains('reading')) return;
@@ -297,10 +326,11 @@
 
   function scale() {
     var reading = window.innerWidth < 640 || document.body.classList.contains('reading-forced');
-    if (reading && tts.active) tts.stop();
+    var entering = reading && !document.body.classList.contains('reading');
     document.body.classList.toggle('reading', reading);
     if (reading) {
       slides.forEach(function (s) { s.style.removeProperty('--fs'); });
+      if (entering) scrollToSlide(false);
       return;
     }
     var w = stage.clientWidth - 24, h = stage.clientHeight - 24;
@@ -313,9 +343,9 @@
     var b = e.target.closest('button');
     if (!b) return;
     var go = b.getAttribute('data-go'), act = b.getAttribute('data-tts');
-    if (go === 'prev') show(idx - 1);
-    else if (go === 'next') show(idx + 1);
-    else if (go === 'first') show(0);
+    if (go === 'prev') goTo(idx - 1);
+    else if (go === 'next') goTo(idx + 1);
+    else if (go === 'first') goTo(0);
     else if (go === 'full') toggleFull();
     else if (go === 'read') { document.body.classList.add('reading-forced'); scale(); exitBtn(); }
     else if (act === 'play') tts.toggle();
@@ -363,7 +393,7 @@
   var x0 = null;
   stage.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
   stage.addEventListener('touchend', function (e) {
-    if (x0 === null) return;
+    if (x0 === null || document.body.classList.contains('reading')) return;
     var dx = e.changedTouches[0].clientX - x0;
     if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1));
     x0 = null;
@@ -375,11 +405,15 @@
   show(isNaN(start) ? 0 : start - 1);
   scale();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { fit(slides[idx]); });
+  // Mở bằng link #số ở dạng cuộn: cuộn lại sau khi hình tải xong vì vị trí slide đã đổi
+  if (!isNaN(start)) window.addEventListener('load', function () {
+    if (document.body.classList.contains('reading')) scrollToSlide(false);
+  });
 
   // Cho trang chủ điều khiển khi nhúng trong iframe (VD: bấm "Trình chiếu có thuyết minh")
   window.addEventListener('message', function (e) {
     if (e.origin !== location.origin || !e.data) return;
-    if (e.data.type === 'pt-play' && !document.body.classList.contains('reading')) { show(0); tts.start(); }
+    if (e.data.type === 'pt-play') { goTo(0); tts.start(); }
     if (e.data.type === 'pt-stop') tts.stop();
   });
 })();
