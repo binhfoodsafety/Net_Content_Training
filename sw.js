@@ -1,7 +1,8 @@
 // Lưu sẵn khoá học để dùng khi không có mạng. Có mạng thì luôn lấy bản mới nhất.
-var CACHE = 'nc-v2';
+var CACHE = 'nc-v3';
 var FILES = [
   './',
+  './cong-cu.html',
   './icons/apple-touch-icon.png',
   './icons/favicon-32.png',
   './icons/favicon-48.png',
@@ -45,7 +46,9 @@ var FILES = [
   './study/data.js',
   './study/say.js',
   './study/study.css',
-  './study/study.js'
+  './study/study.js',
+  './study/tools.css',
+  './study/tools.js'
 ];
 
 self.addEventListener('install', function (e) {

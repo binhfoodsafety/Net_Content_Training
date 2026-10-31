@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thực hành Net Content</title>
+<meta name="description" content="Mô phỏng chiết rót và máy tính khối lượng mục tiêu M cho khoá Quản lý khối lượng tịnh.">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#312e81">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Net Content">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="study/study.css">
+<link rel="stylesheet" href="study/tools.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <a class="back" href="index.html">← Về khoá học</a>
+      <h1>Thực hành</h1>
+    </div>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" id="tabSim" role="tab" type="button" aria-controls="panelSim">🏭 Mô phỏng</button>
+    <button class="tab" id="tabCalc" role="tab" type="button" aria-controls="panelCalc">🧮 Máy tính M</button>
+  </div>
+
+  <section class="panel" id="panelSim" role="tabpanel" aria-labelledby="tabSim">
+    <div id="simIntro">
+      <p class="lead-text">Bạn vận hành máy chiết trong một ca: 32 lần lấy mẫu, mỗi lần 4 đơn vị. Sau mỗi điểm trên biểu đồ, hãy quyết định để yên, chỉnh máy hay thử đầu chiết. Cuối ca, lô 48.000 đơn vị được đánh giá theo Mức 1 và Mức 2, và bạn sẽ biết chuyện gì đã xảy ra với máy.</p>
+      <ul class="facts">
+        <li>E = 100 g · M = 100,1 g · Sref = 2,38 g · Sm = 1,7 g</li>
+        <li>Giới hạn kiểm soát CL = M ± 2,55 g · cảnh báo WL = M ± 1,70 g · UCL của biểu đồ R = 7,99 g</li>
+      </ul>
+      <div class="controls"><button class="btn primary" type="button" id="simStart">▶ Bắt đầu ca</button></div>
+    </div>
+
+    <div id="simRun" hidden>
+      <div class="quiz-header"><span id="simCounter"></span><b id="simMean"></b></div>
+      <div class="chart-box" id="chartX"></div>
+      <div class="chart-box short" id="chartR"></div>
+      <p class="sim-feedback" id="simFeedback" role="status"></p>
+      <div class="sim-actions">
+        <button class="btn primary hold" type="button" data-adj="0">✋ Để yên</button>
+        <button class="btn" type="button" data-adj="-0.5">− 0,5 g</button>
+        <button class="btn" type="button" data-adj="-1">− 1 g</button>
+        <button class="btn" type="button" data-adj="-3">− 3 g</button>
+        <button class="btn" type="button" data-adj="0.5">+ 0,5 g</button>
+        <button class="btn" type="button" data-adj="1">+ 1 g</button>
+        <button class="btn" type="button" data-adj="3">+ 3 g</button>
+        <button class="btn test" type="button" id="simTest">🔧 Thử đầu chiết</button>
+      </div>
+    </div>
+
+    <div id="simEnd" hidden>
+      <div class="verdict" id="simVerdict"></div>
+      <div class="kpis" id="simKpis"></div>
+      <div class="chart-box" id="chartEnd"></div>
+      <p class="lesson" id="simLesson"></p>
+      <div class="controls"><button class="btn primary" type="button" id="simAgain">↻ Chạy ca khác</button></div>
+    </div>
+  </section>
+
+  <section class="panel" id="panelCalc" role="tabpanel" aria-labelledby="tabCalc">
+    <div class="form-grid">
+      <label>Lượng công bố E (g)<input id="cE" type="number" inputmode="decimal" min="5" step="any" value="100"></label>
+      <label>Sref (g)<input id="cS" type="number" inputmode="decimal" min="0" step="any" value="2.4"></label>
+      <label class="wide">Yêu cầu của thị trường bán
+        <select id="cLaw">
+          <option value="eu">Khung EU, lô trên 3 200 đơn vị, rủi ro 1%</option>
+          <option value="strict">Không chấp nhận đơn vị nào dưới TU1</option>
+          <option value="custom">Tự nhập: tỷ lệ dưới giới hạn và tỷ lệ trên E</option>
+        </select>
+      </label>
+      <label class="check" id="cAllowBox"><input id="cAllow" type="checkbox" checked> Luật cho hiệu chỉnh mẫu</label>
+      <label class="law-custom">Giới hạn L (g)<input id="cL" type="number" inputmode="decimal" step="any" value="92.8"></label>
+      <label class="law-custom">Tối đa dưới L (%)<input id="cP" type="number" inputmode="decimal" step="any" value="0.5"></label>
+      <label class="law-custom">Tối thiểu trên E (%)<input id="cPE" type="number" inputmode="decimal" step="any" value="55"></label>
+    </div>
+
+    <div class="result" id="cResult" role="status"></div>
+    <div class="chart-box" id="chartM"></div>
+
+    <h3>Kiểm tra một lô</h3>
+    <div class="form-grid">
+      <label>M0 của lô (g)<input id="cM0" type="number" inputmode="decimal" step="any" value="100.1"></label>
+      <label>Sp của lô (g)<input id="cSp" type="number" inputmode="decimal" min="0" step="any" value="2"></label>
+    </div>
+    <div class="result" id="cLot" role="status"></div>
+
+    <h3>Chi phí rót dư mỗi năm</h3>
+    <div class="form-grid">
+      <label>Sản lượng (đơn vị/năm)<input id="cUnits" type="number" inputmode="numeric" min="0" step="any" value="10000000"></label>
+      <label>Giá sản phẩm (đồng/kg)<input id="cPrice" type="number" inputmode="numeric" min="0" step="any" value="100000"></label>
+      <label>Trung bình thực tế (g)<input id="cAvg" type="number" inputmode="decimal" step="any" value="101"></label>
+    </div>
+    <div class="result" id="cCost" role="status"></div>
+    <p class="note-small">Công cụ để học. Hệ số u là giá trị minh hoạ trong khoá học; trước khi áp dụng, hãy tính lại theo văn bản pháp luật của nước bán và cỡ lô thực tế.</p>
+  </section>
+</div>
+<script src="study/tools.js"></script>
+<script src="pwa.js"></script>
+</body>
+</html>
